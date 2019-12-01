@@ -15,7 +15,8 @@ class SeasonController extends Controller
      */
     public function index()
     {
-        return view('seasons.index');
+        $seasons = Season::orderBy('country_id','ASC')->with('country')->get();
+        return view('seasons.index', ['temporadas' => $seasons]);
     }
 
     /**
@@ -25,7 +26,8 @@ class SeasonController extends Controller
      */
     public function create()
     {
-        return view('seasons.create', ['paises' => Country::orderBy('name_es', 'ASC')->get()]);
+        $countries = Country::orderBy('name_es', 'ASC')->get();
+        return view('seasons.create', ['paises' => $countries]);
     }
 
     /**

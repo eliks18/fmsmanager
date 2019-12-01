@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Season;
 
 class SessionController extends Controller
 {
@@ -23,7 +24,8 @@ class SessionController extends Controller
      */
     public function create()
     {
-        //
+        $seasons = Season::orderBy('country_id', 'ASC')->orderBy('session_no', 'ASC')->get();
+        return view('sessions.create', ['seasons' => $seasons]);
     }
 
     /**

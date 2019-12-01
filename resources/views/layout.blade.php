@@ -8,6 +8,7 @@
 	<title>{{env('APP_NAME')}}</title>
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet" type="text/css" />
 	@stack('styles')
 </head>
 <body>
@@ -25,6 +26,7 @@
 	{{-- <script type="text/javascript" src="{{asset('js/jquery-3.3.1.slim.min.js')}}" type="text/js"></script> --}}
 	<script src="{{ asset('js/app.js') }}" type="text/js"></script>
 	<script src="{{ asset('fontawesome/js/all.min.js') }}" type="text/js"></script>
+	<link href="{{ asset('js/datatables.min.js') }}" type="text/js"/>
 	<script type="text/javascript">
 		$.ajaxSetup({
 			headers: {
