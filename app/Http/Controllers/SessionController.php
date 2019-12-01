@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Session;
 use App\Season;
 
 class SessionController extends Controller
@@ -24,8 +25,9 @@ class SessionController extends Controller
      */
     public function create()
     {
-        $seasons = Season::orderBy('country_id', 'ASC')->orderBy('session_no', 'ASC')->get();
-        return view('sessions.create', ['seasons' => $seasons]);
+        $seasons = Season::get();
+        // $sessions = Session::orderBy('season_id', 'ASC')->orderBy('session_no', 'ASC')->get();
+        return view('sessions.create', ['temporadas' => $seasons]);
     }
 
     /**
@@ -36,7 +38,13 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $session = new Session;
+        $session->season_id = $request->season_id;
+        $session->session_no = $request->session_no;
+        $session->city = $request->city;
+        $session->save();
+        
+        return redirect()->back()->with('message', 'Nueva jornada guardada');
     }
 
     /**
