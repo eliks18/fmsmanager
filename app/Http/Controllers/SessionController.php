@@ -15,7 +15,8 @@ class SessionController extends Controller
      */
     public function index()
     {
-        return view('sessions.index');
+        $sessions = Session::orderBy('season_id', 'ASC')->orderBy('session_no', 'ASC')->with('season')->get();
+        return view('sessions.index', ['jornadas' => $sessions]);
     }
 
     /**
@@ -25,8 +26,7 @@ class SessionController extends Controller
      */
     public function create()
     {
-        $seasons = Season::get();
-        // $sessions = Session::orderBy('season_id', 'ASC')->orderBy('session_no', 'ASC')->get();
+        $seasons = Season::orderBy('country_id', 'ASC')->get();
         return view('sessions.create', ['temporadas' => $seasons]);
     }
 
