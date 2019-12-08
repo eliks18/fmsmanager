@@ -17,7 +17,7 @@
 		<table id="seasons-table" class="table display" style="width:100%">
 			<thead class="thead-dark">
 				<tr>
-					<th>No.</th>
+					<th>#</th>
 					<th>Número de Temporada</th>
 					<th>Liga</th>
 					<th>Año</th>

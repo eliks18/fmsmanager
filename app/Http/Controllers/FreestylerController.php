@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Season;
-use App\Country;
 use App\Freestyler;
+use App\Country;
+use App\Season;
 
 class FreestylerController extends Controller
 {
@@ -16,7 +16,9 @@ class FreestylerController extends Controller
      */
     public function index()
     {
-        return view('freestylers.index');
+        $freestylers = Freestyler::orderBy('country_id','ASC')->with('country')->get();
+
+        return view('freestylers.index', ['freestylers' => $freestylers]);
     }
 
     /**
@@ -39,7 +41,12 @@ class FreestylerController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $freest = new Freestyler;
+        $freest->country_id = $request->country_id;
+        $freest->aka = $request->aka;
+        $freest->save();
+
+        return redirect()->back()->with('message', 'Nuevo freestyler agregado');
     }
 
     /**
