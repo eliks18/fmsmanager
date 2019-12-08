@@ -2,18 +2,7 @@
 @push('styles')
 @endpush
 @section('sidebar')
-<div class="row">
-	<div class="col-md-12">
-		<div class="list-group">
-			<a href="{{url('/')}}" class="list-group-item list-group-item-action">Inicio</a>
-			<a href="{{route('league.index')}}" class="list-group-item list-group-item-action">Ligas</a>
-			<a href="{{route('freestyler.index')}}" class="list-group-item list-group-item-action">Freestylers</a>
-			<a href="{{route('season.index')}}" class="list-group-item list-group-item-action">Temporadas</a>
-			<a href="{{route('session.index')}}" class="list-group-item list-group-item-action">Jornadas</a>
-			<a href="#" class="list-group-item list-group-item-action active">Batallas</a>
-		</div>
-	</div>
-</div>
+@include('sidebar')
 @endsection
 @section('content')
 	<div class="row mb-2">

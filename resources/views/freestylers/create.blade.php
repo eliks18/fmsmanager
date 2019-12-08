@@ -1,5 +1,10 @@
 @extends('layout')
 @push('styles')
+<style type="text/css">
+	input#aka{
+		text-transform: capitalize;
+	}
+</style>
 @endpush
 @section('sidebar')
 @include('sidebar')
@@ -16,13 +21,13 @@
 @endif
 <div class="row mb-2">
 	<div class="col-md-12">
-		<form method="POST" action="{{route('season.store')}}">
+		<form method="POST" action="{{route('freestyler.store')}}">
 			@csrf
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="country_id">País</label>
-						<select class="form-control" id="country_id" name="country_id" onchange="getNextSeason();">
+						<label for="country_id">País donde compite</label>
+						<select class="form-control" id="country_id" name="country_id">
 							<option selected disabled>Elige una opción</option>
 							@forelse($paises as $key => $pais)
 							<option value="{{$pais->id}}">{{$pais->name_es}}</option>
@@ -33,16 +38,8 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="season_no">Número de temporada</label>
-						<input type="text" class="form-control" id="season_no" name="season_no" readonly>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="year">Año</label>
-						<input type="text" class="form-control" id="year" name="year">
+						<label for="aka">A.K.A.</label>
+						<input type="text" class="form-control" id="aka" name="aka">
 					</div>
 				</div>
 			</div>
@@ -50,7 +47,6 @@
 		</form>
 	</div>
 </div>
-@endsection
 @push('scripts')
-<script type="text/javascript" src="{{asset('js/seasons.js')}}"></script>
 @endpush
+@endsection

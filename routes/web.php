@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 Route::get('import', 'CountriesController@import');
 Route::post('season/getNextSeason', 'AjaxController@getNextSeason');
 

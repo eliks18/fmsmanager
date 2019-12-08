@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Season;
+use App\Country;
+use App\Freestyler;
 
 class FreestylerController extends Controller
 {
@@ -23,7 +26,9 @@ class FreestylerController extends Controller
      */
     public function create()
     {
-        //
+        $season_countries = Season::distinct('country_id')->pluck('country_id')->toArray();
+        $countries = Country::whereIn('id', $season_countries)->get();
+        return view('freestylers.create', ['paises' => $countries]);
     }
 
     /**
@@ -34,7 +39,7 @@ class FreestylerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
