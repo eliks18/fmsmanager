@@ -15,10 +15,12 @@ class CreateSeasonsTable extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('country_id');
-            $table->bigInteger('season_no');
-            $table->bigInteger('year');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('season_no');
+            $table->unsignedBigInteger('year');
             $table->timestamps();
+
+            $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 

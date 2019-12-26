@@ -34,7 +34,18 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="session_no">Número de jornada</label>
-						<input type="text" class="form-control" id="session_no" name="session_no">
+						<select class="form-control" id="session_no" name="session_no">
+							<option disabled selected>Elige una opción</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
 					</div>
 				</div>
 			</div>

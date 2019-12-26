@@ -15,9 +15,12 @@ class CreateFreestylersTable extends Migration
     {
         Schema::create('freestylers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('country_id');
+            $table->unsignedBigInteger('country_id');
             $table->string('aka');
+            $table->unsignedInteger('status')->default(0);
             $table->timestamps();
+           
+            $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 

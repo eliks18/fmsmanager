@@ -44,6 +44,7 @@ class FreestylerController extends Controller
         $freest = new Freestyler;
         $freest->country_id = $request->country_id;
         $freest->aka = $request->aka;
+        $freest->status = $request->status;
         $freest->save();
 
         return redirect()->back()->with('message', 'Nuevo freestyler agregado');

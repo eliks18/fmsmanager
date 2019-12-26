@@ -42,6 +42,16 @@
 						<input type="text" class="form-control" id="aka" name="aka">
 					</div>
 				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="status">Estatus</label>
+						<select class="form-control" id="status" name="status">
+							<option disabled selected>Elige una opción</option>
+							<option value="0">Activo</option>
+							<option value="1">Inactivo</option>
+						</select>
+					</div>
+				</div>
 			</div>
 			<button type="submit" class="btn btn-primary">Guardar</button>
 		</form>

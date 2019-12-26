@@ -15,10 +15,12 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('session_no');
+            $table->unsignedBigInteger('session_no');
             $table->string('city');
-            $table->bigInteger('season_id');
+            $table->unsignedBigInteger('season_id');
             $table->timestamps();
+
+            $table->foreign('season_id')->references('id')->on('seasons');
         });
     }
 
